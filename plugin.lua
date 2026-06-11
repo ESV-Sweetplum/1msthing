@@ -10,7 +10,7 @@ function draw()
         for _, note in pairs(notes) do
             table.insert(result,
                 utils.CreateHitObject(note.StartTime + 1, note.Lane, note.EndTime == 0 and 0 or note.EndTime + 1,
-                    note.HitSound, note.EditorLayer, note.Type))
+                    note.HitSound, note.EditorLayer, note.Type, note.TimingGroup))
         end
 
         actions.PerformBatch({
@@ -27,7 +27,7 @@ function draw()
         for _, note in pairs(notes) do
             table.insert(result,
                 utils.CreateHitObject(note.StartTime - 1, note.Lane, note.EndTime == 0 and 0 or note.EndTime - 1,
-                    note.HitSound, note.EditorLayer, note.Type))
+                    note.HitSound, note.EditorLayer, note.Type, note.TimingGroup))
         end
 
         actions.PerformBatch({
